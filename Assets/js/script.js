@@ -1,5 +1,17 @@
 var el = document.querySelector(".timer");
 var timer = 60;
+var question= document.querySelector(".question")
+var nex = question.querySelector(".nex");
+var pre = question.querySelector(".pre");
+var index = 0;
+var currentQuestion;
+var quiz= [
+"pregunta 1",
+"pregunta 2",
+"pregunta 3",
+"pregunta 4",
+];
+
 function timeLeft(){
     var sec= "seconds";
     if (timer === 1){
@@ -19,8 +31,11 @@ el.addEventListener("click", function setUp(){
         }
     },1000);
 })
+//nex prev
+
+
 function sendMessage(){
     el.textContent="Time's Up";
+ };
 
-}
 setUp();
