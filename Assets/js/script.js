@@ -1,5 +1,5 @@
 var el = document.querySelector(".timer");
-var timer = 90;
+var timer = 60;
 function timeLeft(){
     var sec= "seconds";
     if (timer === 1){
@@ -8,7 +8,7 @@ function timeLeft(){
     el.textContent= timer + " " + sec + " left!";
 
 }
-function setUp(){
+el.addEventListener("click", function setUp(){
     el.textContent= timer + " seconds left!";
     var inter = setInterval(function(){
         timer--;
@@ -18,9 +18,9 @@ function setUp(){
             sendMessage();
         }
     },1000);
-}
+})
 function sendMessage(){
-    el.textContent=" ";
+    el.textContent="Time's Up";
 
 }
 setUp();
