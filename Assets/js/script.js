@@ -2,34 +2,37 @@ var el = document.querySelector(".timer");
 var timer = 60;
 var sec= "seconds";
 var questions= document.querySelectorAll(".question")
-var nex = document.querySelector(".nex");
-var pre = document.querySelector(".pre");
+var nex = "";
+var pre = "";
 var index = 0;
 var cursor = 0;
-var currentQuestion;
-/*var quiz= [
-"pregunta 1",
-"pregunta 2",
-"pregunta 3",
-"pregunta 4",
-];
-*/
+var questionAnswer= ["c) Amber Heart","c) 7","a) Kim","c) Ben Affleck"];
+
 var displayQuestion = function (){
     for (var question of questions){
         console.log(question);
         if (question.dataset.index != cursor){
             question.style.display="none";
-
+        }else{
+            question.style.display = "block";
         }
     }
 };
-var advance = function(){
-    if (index<questions.length - 1){
-        index++;
+nex = function(event){
+    var element = event.target;
+    console.log(element);
+    if (element.matches(".question button")){
+    if (cursor < questions.length -1){
+        cursor++;
     }
     displayQuestion();
+    }
 };
+
+document.addEventListener("click", nex);
+
 displayQuestion();
+
 
 //timer
 function timeLeft(){
@@ -55,16 +58,4 @@ function sendMessage(){
     //setUp();
  };
  //setUp();
-
-var displayQuiz = function(){
-    for(var question of questions){
-        console.log(question);
-        if (question.dataset.index != cursor){
-            question.style.display="none";
-        }else{
-            question.style.display = "block";
-        }
-    }
-};
-
 
