@@ -43,9 +43,9 @@ function sendMessage(){
 function navigate(dir){
     index = index + dir;
     if(index <0){
-        index = quiz.length - 1;
+
     }else if (index> quiz.length -1){
-        index=0;
+        
     }
     currentQuestion = quiz[index];
     question.textContent = currentQuestion;
