@@ -6,12 +6,11 @@ var nex = "";
 var pre = "";
 var index = 0;
 var cursor = 0;
-var questionAnswer= ["c) Amber Heart","c) 7","a) Kim","c) Ben Affleck"];
+var questionAnswer= ["2","c","a","c"];
 
 var displayQuestion = function (){
     for (var question of questions){
-        console.log(question);
-        if (question.dataset.index != cursor){
+         if (question.dataset.index != cursor){
             question.style.display="none";
         }else{
             question.style.display = "block";
@@ -20,11 +19,15 @@ var displayQuestion = function (){
 };
 nex = function(event){
     var element = event.target;
-    console.log(element);
     if (element.matches(".question button")){
-    if (cursor < questions.length -1){
-        cursor++;
-    }
+            var answer = element.dataset.choice === questionAnswer[cursor];
+            console.log(element);
+            console.log(element.dataset.choice);
+            console.log(questionAnswer[cursor]);
+            console.log(answer);
+            if (cursor< questions.length -1){
+                cursor++;
+            }
     displayQuestion();
     }
 };
