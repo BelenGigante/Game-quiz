@@ -1,17 +1,35 @@
 var el = document.querySelector(".timer");
 var timer = 60;
 var sec= "seconds";
-var question= document.querySelector(".question")
+var questions= document.querySelectorAll(".question")
 var nex = document.querySelector(".nex");
 var pre = document.querySelector(".pre");
 var index = 0;
+var cursor = 0;
 var currentQuestion;
-var quiz= [
+/*var quiz= [
 "pregunta 1",
 "pregunta 2",
 "pregunta 3",
 "pregunta 4",
 ];
+*/
+var displayQuestion = function (){
+    for (var question of questions){
+        console.log(question);
+        if (question.dataset.index != cursor){
+            question.style.display="none";
+
+        }
+    }
+};
+var advance = function(){
+    if (index<questions.length - 1){
+        index++;
+    }
+    displayQuestion();
+};
+displayQuestion();
 
 //timer
 function timeLeft(){
@@ -38,26 +56,15 @@ function sendMessage(){
  };
  //setUp();
 
-
-//nex prev
-function navigate(dir){
-    index = index + dir;
-    if(index <0){
-
-    }else if (index> quiz.length -1){
-        
+var displayQuiz = function(){
+    for(var question of questions){
+        console.log(question);
+        if (question.dataset.index != cursor){
+            question.style.display="none";
+        }else{
+            question.style.display = "block";
+        }
     }
-    currentQuestion = quiz[index];
-    question.textContent = currentQuestion;
-}
+};
 
-nex.addEventListener("click", function(event){
-    event.stopPropagation();
-    navigate(1);
-})
-pre.addEventListener("click", function(event){
-    event.stopPropagation();
-    navigate(-1);
-});
-navigate(0);
 
