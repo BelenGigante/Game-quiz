@@ -3,7 +3,6 @@ var timer = 60;
 var sec= "seconds";
 var questions= document.querySelectorAll(".question")
 var nex = "";
-var pre = "";
 var index = 0;
 var cursor = 0;
 var questionAnswer= ["2","c","a","c"];
